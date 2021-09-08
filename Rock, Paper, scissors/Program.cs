@@ -7,24 +7,23 @@ namespace Rock__Paper__scissors
         static void Main(string[] args)
         {
             Console.WriteLine("Please choose your opponents name.");
-            string Computername = Console.ReadLine();
-            int i = 0;
-            int Computerwins = 0;
+            string ComputerName = Console.ReadLine();           
+            int ComputerWins = 0;
             int UserWins = 0;
-            while (i < 3)
+            while (ComputerWins < 2 && UserWins < 2)
             {
-                Console.WriteLine("Please enter Paper, Rock, scissors.");
+                Console.WriteLine("Please enter Paper, Rock, Scissors.");
                 string Userchoice = Console.ReadLine().ToLower();
                 Random rnd = new Random();
                 int ComputerChoice = rnd.Next(1, 4);
                 if (Userchoice == "paper" && ComputerChoice == 3)
                 {
-                    Console.WriteLine($"{Computername} wins with scissors against paper!");
-                    Computerwins++;
+                    Console.WriteLine($"{ComputerName} wins with scissors against paper!");
+                    ComputerWins++;
                 }
                 else if (Userchoice == "rock" && ComputerChoice == 3)
                 {
-                    Console.WriteLine($"{Computername} Loses with scissors against rock!");
+                    Console.WriteLine($"{ComputerName} Loses with scissors against rock!");
                     UserWins++;
                 }
                 else if (Userchoice == "scissors" && ComputerChoice == 3)
@@ -34,7 +33,7 @@ namespace Rock__Paper__scissors
                 }
                 else if (Userchoice == "paper" && ComputerChoice == 2)
                 {
-                    Console.WriteLine($"{Computername} loses with rock against paper!");
+                    Console.WriteLine($"{ComputerName} loses with rock against paper!");
                     UserWins++;
                 }
                 else if (Userchoice == "rock" && ComputerChoice == 2)
@@ -44,8 +43,8 @@ namespace Rock__Paper__scissors
                 }
                 else if (Userchoice == "scissors" && ComputerChoice == 2)
                 {
-                    Console.WriteLine($"{Computername} wins with rock against scissors!");
-                    Computerwins++;
+                    Console.WriteLine($"{ComputerName} wins with rock against scissors!");
+                    ComputerWins++;
                 }
                 else if (Userchoice == "paper" && ComputerChoice == 1)
                 {
@@ -54,30 +53,25 @@ namespace Rock__Paper__scissors
                 }
                 else if (Userchoice == "rock" && ComputerChoice == 1)
                 {
-                    Console.WriteLine($"{Computername} wins with paper against rock!");
-                    Computerwins++;
+                    Console.WriteLine($"{ComputerName} wins with paper against rock!");
+                    ComputerWins++;
                 }
-                else
+                else if (Userchoice == "scissors" && ComputerChoice == 1)
                 {
-                    Console.WriteLine($"{Computername} loses with paper against scissors!");
+                    Console.WriteLine($"{ComputerName} loses with paper against scissors!");
                     UserWins++;
-                }
-                
-                i++;
+                }               
 
             }
-            if (Computerwins < UserWins)
+            if (ComputerWins < UserWins)
             {
-                Console.WriteLine($"{Computername} loses {Computerwins} to {UserWins}!");
-            }
-            else if (Computerwins > UserWins)
-            {
-                Console.WriteLine($"{Computername} wins {Computerwins} to {UserWins}!");
+                Console.WriteLine($"{ComputerName} loses {ComputerWins} to {UserWins}!");
             }
             else
             {
-                Console.WriteLine("It's a draw!");
+                Console.WriteLine($"{ComputerName} wins {ComputerWins} to {UserWins}!");
             }
+
             Console.ReadLine();
         }
     }
